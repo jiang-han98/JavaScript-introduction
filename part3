@@ -47,8 +47,27 @@ function test() {
 ECMAScript有五种基本数据类型：Undefined、Null、Bollean、Number和String
             一种复杂数据类型：Object
 
-3.4.1typeof操作符
- 
+3.4.1 typeof操作符
+检测给定变量的数据类型。
+
+undefined————未定义
+boolean————布尔值
+string————字符串
+number————数值
+object————对象或null
+function————函数
+
+var message = "some string";
+alert(typeof message);         //string
+alert(typeof (message));       //string
+
+typeof是一个操作符而不是函数，因此圆括号可以使用，但不是必须的
+有时typeof会返回一些技术上正确但会误导人的值：
+1.typeof null 会返回object    因为null被认为是一个空的字符引用
+2.typeof 正则表达式 在Safari5及之前版本、Chrome及之前版本会返回“function” 其他浏览器会返回“object”
+
+3.4.2 undefined类型
+在使用var声明变量但未对其初始化时，这个变量的值就是undefined
 
 
 
