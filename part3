@@ -68,8 +68,17 @@ typeof是一个操作符而不是函数，因此圆括号可以使用，但不�
 
 3.4.2 undefined类型
 在使用var声明变量但未对其初始化时，这个变量的值就是undefined
+未初始化的变量自动被赋予undefined值，但最好先显式声明
 
+3.4.3 null类型
+空对象指针
+typeof操作符检测null会返回object
+如果变量要保存对象， 最好用null初始化变量  因为 只要直接检查null值就可以知道是否已经保存了对象的引用
 
+undefined值是派生自null值的
+所以alert（null == undefined）   //true
+
+3.4.4Bollean类型
 
 
 
