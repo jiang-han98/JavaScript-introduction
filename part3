@@ -79,6 +79,34 @@ undefined值是派生自null值的
 所以alert（null == undefined）   //true
 
 3.4.4Bollean类型
+只有两个字面值：true false  且区分大小写
+这两个值不等同于数字   所以 true不一定等于1  false不一定等于0
+转换规则
+数据类型            转换为true的值               转换为false的值
+boolean            true                       false
+string             任何非空字符串               ""(空字符串)
+number             任何非零字符值（包括无穷大）   0和NAN（NAN来了 /滑稽）
+object             任何对象                     null
+undefined          N/A即notapplicable（不适用） undefined
+
+3.4.5 number类型
+8进制第一位必须是0  如果数值超出了范围，那么前导0将被忽略，后面的数字将被作为十进制解析
+8进制字面量在严格模式下是无效的
+16进制字面值前两位必须是0x  字母A~F大小写都行
+在进行算数计算时，所有八进制十六进制都必须换算成十进制
+
+ 1.浮点数值
+ e表示法
+ 
+
+
+
+
+
+
+
+
+
 
 
 
