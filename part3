@@ -97,8 +97,16 @@ undefined          N/A即notapplicable（不适用） undefined
 
  1.浮点数值
  e表示法
+ 浮点数值的最高精度是17位小数，但在算数计算时精度远不如整数
+ eg. 0.1 + 0.2 = 0.30000000000000000004
+ 永远不要测试某个特定的浮点数值
  
-
+ 2.数值范围
+ 最小数值 Number.MIN_VALUE 这个值是 5e-324
+ 最大数值 Number.MAX_VALUE 这个值是 1.7976931348623157e+308
+ 
+ 如果一个值超过了这个范围则被自动转换成Infinity值 正数：Indinity（正无穷） 负数:-Indinity（负无穷）
+ Infinity是不能够参加运算的数值
 
 
 
