@@ -83,7 +83,7 @@ undefined值是派生自null值的
 这两个值不等同于数字   所以 true不一定等于1  false不一定等于0
 转换规则
 数据类型            转换为true的值               转换为false的值
-boolean            true                       false
+boolean            true                        false
 string             任何非空字符串               ""(空字符串)
 number             任何非零字符值（包括无穷大）   0和NAN（NAN来了 /滑稽）
 object             任何对象                     null
@@ -108,6 +108,42 @@ undefined          N/A即notapplicable（不适用） undefined
  如果一个值超过了这个范围则被自动转换成Infinity值 正数：Indinity（正无穷） 负数:-Indinity（负无穷）
  Infinity是不能够参加运算的数值
 
+ isFinite()函数  参数位于最大数值与最小数值之间会返回true
+ 
+ 3.NaN
+ NaN，即非数值  用于表示一个本来要返回数值的操作数未返回数值的情况
+ js中，0除以0会返回NaN，大于0除以0返回Indinity，小于0除以0返回-Indinity，不会影响其他代码执行
+ 1.任何涉及Nan的操作都会返回NaN
+ 2.NaN和任何值都不相等，包括NaN本身（alert(NaN === NaN)   //false     alert(NaN == NaN)  // false）
+ 3.typeof(NaN) // "number"
+ 
+ isNaN（）函数， 函数接收一个可以是任何类型的参数，函数会尝试把参数转化为数值，某些不是数值的会直接转化为数值（如"10",boolean），
+能转化为数值则返回false，不能的（即NaN）返回true
+ eg.
+ alert(isNaN(NaN));    //true
+ alert(isNaN(10));    //false
+ alert(isNaN("10"));    //false
+ alert(isNaN("blue"));    //true
+ alert(isNaN(true));    //false   (可以转换成数值1)
+ isNaN()也可适用于对象  会先调用对象的valueof()方法，确定返回的值是否可以转换成数值。如果不能，则基于返回值再调用toString()方法，再测试返回值
+ 
+ 4.数值转换
+ 把非数值转化为数值的3个函数：Number（），parseInt（），parseFloat（）
+ 转型函数Number（）可用于任何数据类型，parseInt（），parseFloat（）专门用于把字符串转换成数值
+ 
+ Number（）的转换规则：
+ （1）Boolean值，true变1，false变0
+ （2）数字值，只传入和返回
+ （3）null值，返回0
+ （4）undefined，返回NaN
+ （5）字符串，遵循以下规则：
+     （a）字符串中只包含数字（包括前面带正负号），将其转化为十进制数值，特别的如"0011"会变为11（前导0被忽略了）
+     （b）字符串中包含有效的浮点格式，转化为对应的浮点数值（同样忽略前导0）
+     （c）字符串中包含有效的十六进制格式，将其转化为对应的十进制整数值
+     （d）字符串是空的（不包括任何数值），转换为0
+     （e）字符串中包含上述格式外的字符，则转化为NaN
+ （6）如果是对象，则调用对象的valueOf（）方法，然后依照前面的规则转换返回的值，
+     如果valueOf()转换结果为NaN，则调用toString（）方法，然后再依照前面的规则转换返回的字符串值
 
 
 
