@@ -144,7 +144,17 @@ undefined          N/A即notapplicable（不适用） undefined
      （e）字符串中包含上述格式外的字符，则转化为NaN
  （6）如果是对象，则调用对象的valueOf（）方法，然后依照前面的规则转换返回的值，
      如果valueOf()转换结果为NaN，则调用toString（）方法，然后再依照前面的规则转换返回的字符串值
-
+     注：
+     valueOf（）规则：  valueOf() 方法返回指定对象的原始值。
+     对象	返回值
+     Array	     返回数组对象本身。
+     Boolean	   布尔值。
+     Date	       存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC。
+     Function	   函数本身。
+     Number	     数字值。
+     Object	     对象本身。这是默认情况。
+     String	     字符串值。
+ 	               Math 和 Error 对象没有 valueOf 方法。
 
 
 
