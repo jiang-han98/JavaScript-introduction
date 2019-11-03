@@ -155,7 +155,34 @@ undefined          N/A即notapplicable（不适用） undefined
      Object	     对象本身。这是默认情况。
      String	     字符串值。
  	               Math 和 Error 对象没有 valueOf 方法。
+注：Number（）转换字符串时非常复杂且不够合理  所以在处理整数时更常用parseInt（）函数。
 
+parseInt（）函数会忽略字符串前面的空格，知道找到第一个非空格字符。如果第一个字符不是数字字符或者负号，就会返回NaN；直到遇到了非数字字符
+开头0x且后跟数字 解析成16进制       开头0后跟数字 解析成8进制
+对空字符串： parseInt（ ） 返回NaN            Number（ ） 返回0
+
+parseInt（"1234ble"）      //1234
+parseInt（"22.05"）        //22
+parseInt（"070"）          //56（八进制）（ECMScript3）  70（ECMAScript5）
+
+在使用parseInt（）解析像八进制字面量的字符串时，ECMAScript3和5存在分歧
+parseInt（"070"）          //56（八进制）（ECMScript3）  70（ECMAScript5）
+为了消除这种困扰，可以为parseInt（）提供第二个参数：基数（转换时的进制数）
+eg. parseInt("AF",16)
+
+建议无论什么时候都明确基数   即使是10进制数，也最后加上基数10 且这是十分必要的
+parseFloat（）也是从第一个字符（位置0）开始解析 直到串尾或遇到一个无效的浮点数字字符 （字符串中的第一个小数点有效，但第二个小数点就无效了）
+
+         parseInt（）     和     parseFloat（）的区别
+1.小数点     无效                  第一个有效
+2.前导0   十六进制不会忽略           始终忽略（parseFloat（）只解析十进制）
+如果字符串包含的是一个可解析为整数的数（没有小数点或小数点后是0）parseFloat（）会返回整数
+
+
+
+
+
+                
 
 
 
